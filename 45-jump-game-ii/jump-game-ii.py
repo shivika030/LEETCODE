@@ -1,14 +1,11 @@
 class Solution:
-    def jump(self, nums: List[int]) -> int:
-        left=0
-        right=0
+    def jump(self, nums):
         jump=0
-        while right<len(nums)-1:
-            end=0
-            for i in range(left,right+1):
-                end=max(end,i+nums[i])
-            left=right+1
-            right=end
-            jump+=1
-        return jump    
-        
+        end=0
+        far=0
+        for i in range(len(nums)-1):
+            far= max(far, i+nums[i])
+            if i==end:
+                jump+=1
+                end=far
+        return jump        
